@@ -1,0 +1,68 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+#logo{
+    font-size: 50px;
+}
+.top_bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+.nav {
+    display: flex;
+    align-items: center;
+}
+.nav a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+#nav_login{
+    display: flex;
+}
+#nav_register{
+    display: flex;
+    margin-left: 20px;
+}
+#books{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+#book{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 430px;
+    border-radius: 10px;
+}
+#book:hover{
+    box-shadow: 0px 0px 10px 0px #BEBEBE;
+}
+#book_a{
+    color: black;
+    text-decoration: none;
+}
+#book_image{
+    height: 300px;
+    width: 250px;
+}
+#book_name{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+#book_description{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px;
+}
+#book_author{
+    margin-left: 10px;
+}

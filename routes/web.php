@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use \App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'show']);
+
+Route::get('/contacts', [ContactsController::class, 'show'])->name('contacts');
+Route::get('/book/{book}', [HomeController::class, 'book'])->name('books');
+Route::get('/order/{book}', [HomeController::class, 'order'])->name('orders');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
