@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\ContactsController;
+use App\Http\Controllers\BasketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::get('/', [HomeController::class, 'show']);
 
 Route::get('/contacts', [ContactsController::class, 'show'])->name('contacts');
 Route::get('/book/{book}', [HomeController::class, 'book'])->name('books');
-Route::get('/order/{book}', [HomeController::class, 'order'])->name('orders');
+Route::get('/basket/{book}', [HomeController::class, 'basket'])->name('basket');
+Route::post('/basket', [BasketController::class, 'addItem'])->name('basket_add');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

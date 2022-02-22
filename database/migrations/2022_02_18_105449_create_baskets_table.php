@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('baskets');
+        Schema::table('baskets', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

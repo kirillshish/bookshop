@@ -19,14 +19,7 @@ class HomeController extends Controller
 
     public function book(Book $book): View
     {
-
-
         return view('book', compact('book'));
-    }
-    public function order($id): View
-    {
-
-        return view('order',compact('book'));
     }
 
 }
