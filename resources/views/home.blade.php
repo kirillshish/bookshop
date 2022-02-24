@@ -25,6 +25,7 @@
                 @auth
                     <a href="{{ url('/dashboard') }}"
                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+{{--                 todo remove extra data   --}}
                 @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"
                        id="nav_login">LOG IN</a>
@@ -42,8 +43,8 @@
     <div id="books">
         @foreach($books as $book)
             <div id="book">
-                <a href="{{route('books', $book->id)}}" id="book_a">
-                    <img src="{{ asset("$book->image") }}" id="book_image">
+                <a href="{{route('books', $book->id)}}" id="book_a"> {{-- todo id? --}}
+                    <img src="{{ asset("$book->image") }}" id="book_image">  {{-- todo use classes --}}
                     <p id="book_name">{{ $book->name }}</p>
                     <p id="book_description">{{ $book->description }}</p>
                     <p id="book_author">~{{ $book->author }}</p>
@@ -51,7 +52,7 @@
                         <a href="{{route('basket',$book->id)}}" class="basket_handler" data-id="{{$book->id}}">BUY</a>
                     @endauth
                     @guest
-                        <a href="/login">BUY</a>
+                        <a href="/login">BUY</a> {{-- todo use route function --}}
                     @endguest
                 </a>
             </div>

@@ -11,7 +11,7 @@ class BasketController extends Controller
 {
     public function addItem(Request $request)
     {
-        $validated = $request->validate([
+        $validated = $request->validate([ // todo unused
             'id' => 'required'
         ]);
         $userId = Auth::id();
@@ -20,13 +20,13 @@ class BasketController extends Controller
             ->whereNull('deleted_at')
             ->first();
 
-        if (is_null($basket)) {
+        if (is_null($basket)) { // todo use collections methods, read about collections
             $basket = Basket::query()->create([
                 'user_id' => $userId,
             ]);
         }
 
-        BasketItem::query()->create(
+        BasketItem::query()->create( // todo relationships
             [
                 'basket_id' => $basket->id,
                 'book_id' => $request->get('id')

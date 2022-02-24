@@ -16,14 +16,14 @@ use App\Http\Controllers\BasketController;
 |
 */
 
-Route::get('/', [HomeController::class, 'show']);
-Route::get('/contacts', [ContactsController::class, 'show'])->name('contacts');
-Route::get('/book/{book}', [HomeController::class, 'book'])->name('books');
-Route::get('/basket/{book}', [HomeController::class, 'basket'])->name('basket');
-Route::post('/basket', [BasketController::class, 'addItem'])->name('basket_add');
+Route::get('/', [HomeController::class, 'show']); // todo index
+Route::get('/contacts', [ContactsController::class, 'show'])->name('contacts'); // todo has no
+Route::get('/book/{book}', [HomeController::class, 'book'])->name('books'); // todo change controller
+Route::get('/basket/{book}', [HomeController::class, 'basket'])->name('basket'); // todo change controller
+Route::post('/basket', [BasketController::class, 'addItem'])->name('basket_add'); // todo 1) change name 2)
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard'); // todo check and remove if need
 
 
 require __DIR__ . '/auth.php';
