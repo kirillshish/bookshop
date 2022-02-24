@@ -17,16 +17,13 @@ use App\Http\Controllers\BasketController;
 */
 
 Route::get('/', [HomeController::class, 'show']);
-
 Route::get('/contacts', [ContactsController::class, 'show'])->name('contacts');
 Route::get('/book/{book}', [HomeController::class, 'book'])->name('books');
 Route::get('/basket/{book}', [HomeController::class, 'basket'])->name('basket');
 Route::post('/basket', [BasketController::class, 'addItem'])->name('basket_add');
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

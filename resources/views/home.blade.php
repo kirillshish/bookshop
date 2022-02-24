@@ -18,24 +18,27 @@
 </head>
 <body>
 <div class="container-fluid p-0">
-        <div class="top_bar">
-            <p id="logo">BookShelf</p>
-            @if (Route::has('login'))
+    <div class="top_bar">
+        <p id="logo">BookShelf</p>
+        @if (Route::has('login'))
             <div class="nav">
                 @auth
                     <a href="{{ url('/dashboard') }}"
                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" id="nav_login">LOG IN</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"
+                       id="nav_login">LOG IN</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline" id="nav_register">REGISTER</a>
+                        <a href="{{ route('register') }}"
+                           class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+                           id="nav_register">REGISTER</a>
                     @endif
                 @endauth
 
             </div>
-            @endif
-        </div>
+        @endif
+    </div>
     <div id="books">
         @foreach($books as $book)
             <div id="book">
@@ -49,7 +52,7 @@
                     @endauth
                     @guest
                         <a href="/login">BUY</a>
-                        @endguest
+                    @endguest
                 </a>
             </div>
         @endforeach
